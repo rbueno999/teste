@@ -1,0 +1,70 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Trivy scan
+        uses: docker run --name trivy bitnami/trivy:latest
+        with:
+          image-ref: 'rbueno999/desktop-tutorial:latest'
+
+      - name: Run SonarCloud scan
+        uses: sonarsource/sonarcloud-github-action@v1
+        with:
+          projectKey: 'your-sonarcloud-project-key'
+          organization: 'your-sonarcloud-organization'
+          token: ${{ secrets.SONAR_TOKEN }}
+
+  build:
+    runs-on: ubuntu-latest
+    needs: scan
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: rbueno999/desktop-tutorial:latest
+
+  update-manifests:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout manifests repo
+        uses: actions/checkout@v2
+        with:
+          repository: your-org/your-manifests-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update image tag in Helm values
+        run: |
+          sed -i 's/tag: .*/tag: latest/' path/to/your/helm/values.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add path/to/your/helm/values.yaml
+          git commit -m 'Update image tag to latest'
+          git push
