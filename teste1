@@ -20,8 +20,8 @@ jobs:
       - name: Run SonarCloud scan
         uses: sonarsource/sonarcloud-github-action@v1
         with:
-          projectKey: 'your-sonarcloud-project-key'
-          organization: 'your-sonarcloud-organization'
+          projectKey: 'SONAR_TOKEN'
+          organization: '8305dbd684592459af805401b7b07cfae9732713'
           token: ${{ secrets.SONAR_TOKEN }}
 
   build:
