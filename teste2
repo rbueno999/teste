@@ -19,12 +19,10 @@ jobs:
 
       - name: Run SonarCloud scan
         uses: sonarsource/sonarcloud-github-action@v1
-        with:
-          projectKey: 'teste'
-          SONAR_TOKEN: 'SONAR_TOKEN'
-          token: '8305dbd684592459af805401b7b07cfae9732713'
 
-  build:
+
+        
+build:
     runs-on: ubuntu-latest
     needs: scan
     steps:
