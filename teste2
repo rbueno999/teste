@@ -23,10 +23,12 @@ jobs:
           projectKey: 'SONAR_TOKEN'
           organization: 'test'
           token: ${{ secrets.sonar_token }}
-          projectKey: 'GITHUB_TOKEN'
-          organization: 'test'
-          token: ${{ secrets.Git_token }}
-        
+
+      - name: Another step using GitHub token
+        run: echo "Using GitHub token"
+        env:
+          GITHUB_TOKEN: ${{ secrets.Git_token }}
+              
 build:
     runs-on: ubuntu-latest
     needs: scan
