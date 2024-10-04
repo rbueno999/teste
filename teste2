@@ -21,8 +21,8 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v1
         with:
           projectKey: 'teste'
-          organization: '8305dbd684592459af805401b7b07cfae9732713'
-          token: ${{ secrets.SONAR_TOKEN }}
+          organization: 'SONAR_TOKEN'
+          token: '8305dbd684592459af805401b7b07cfae9732713'
 
   build:
     runs-on: ubuntu-latest
