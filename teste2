@@ -23,6 +23,9 @@ jobs:
           projectKey: 'SONAR_TOKEN'
           organization: 'test'
           token: ${{ secrets.sonar_token }}
+          projectKey: 'GITHUB_TOKEN'
+          organization: 'test'
+          token: ${{ secrets.Git_token }}
         
 build:
     runs-on: ubuntu-latest
