@@ -37,8 +37,8 @@ build:
       - name: Log in to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ rogerfb1966 }}
-          password: ${{ Xereta3.1415926 }}
+          username: ${{ 'rogerfb1966' }}
+          password: ${{ secret.dockerhub }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
