@@ -17,12 +17,10 @@ jobs:
         with:
           image-ref: 'rogerfb1966/teste1:1.0'
 
-      - name: Run SonarCloud scan
-        uses: sonarsource/sonarcloud-github-action@v1
-        with:
-          projectKey: 'SONAR_TOKEN'
-          organization: 'test'
-          token: ${{ secrets.sonar_token }}
+     - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.sonar_token }}
 
       - name: Another step using GitHub token
         run: echo "Using GitHub token"
