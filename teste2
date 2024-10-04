@@ -24,7 +24,7 @@ jobs:
             projectBaseDir: .
             env:
               GITHUB_TOKEN: Git_token
-            SONAR_TOKEN: sonar_token
+              SONAR_TOKEN: sonar_token
 
         
 build:
