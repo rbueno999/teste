@@ -15,7 +15,7 @@ jobs:
       - name: Run Trivy scan
         uses: docker run --name trivy bitnami/trivy:latest
         with:
-          image-ref: 'rbueno1966/teste1'
+          image-ref: 'rogerfb1966/test1/hello-world-app:latest'
 
       - name: Run SonarCloud scan
         uses: sonarsource/sonarcloud-github-action@v1
