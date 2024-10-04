@@ -20,6 +20,11 @@ jobs:
       - name: Run SonarCloud scan
         uses: sonarsource/sonarcloud-github-action@v1
 
+          with:
+            projectBaseDir: .
+            env:
+              GITHUB_TOKEN: Git_token
+            SONAR_TOKEN: sonar_token
 
         
 build:
