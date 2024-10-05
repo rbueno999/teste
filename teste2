@@ -52,7 +52,7 @@ build:
         uses: docker/login-action@v1
         with:
           username: ${{ 'rogerfb1966' }}
-          password: ${{ secret.dockerhub }}
+          password: ${{ secret.dockerhub_1 }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
