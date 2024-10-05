@@ -41,10 +41,10 @@ build:
         password: ${{ secrets.dockerhub_1 }}
 
     - name: Build Docker image
-      run: docker build -t your-dockerhub-username/your-image-name:latest .
+      run: docker build -t rogerfb1966/teste1:1.0 .
 
     - name: Push Docker image
-      run: docker push your-dockerhub-username/your-image-name:latest
+      run: docker push rogerfb1966/teste1:1.0
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
