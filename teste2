@@ -21,7 +21,6 @@ jobs:
 
      - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1
-        
         env:
           sonar.projectKey: teste
           sonar.organization: rbueno999
