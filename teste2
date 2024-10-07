@@ -23,6 +23,7 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.sonar_token }}
+          GITHUB_TOKEN: ${{ secrets.Git_token }}
 
       - name: Another step using GitHub token
         run: echo "Using GitHub token"
