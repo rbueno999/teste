@@ -60,7 +60,7 @@ build:
         with:
           context: .
           push: true
-          tags: rbueno999/desktop-tutorial:latest
+          tags: rogerfb1966/teste1:1.0
 
   update-manifests:
     runs-on: ubuntu-latest
