@@ -15,6 +15,8 @@ jobs:
       - name: Run Trivy scan
         uses: docker run --name trivy bitnami/trivy:latest
         with:
+          username: ${{ secrets.DOCKER_ID }}
+          password: ${{ secrets.dockerhub_1 }}
           image-ref: 'rogerfb1966/teste1:1.0'
 
      - name: SonarCloud Scan
