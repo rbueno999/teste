@@ -24,7 +24,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.sonar_token }}
           GITHUB_TOKEN: ${{ secrets.Git_token }}
-
+          username: ${{ secrets.DOCKER_ID }}
+          password: ${{ secrets.dockerhub_1 }}
+      
       - name: Another step using GitHub token
         run: echo "Using GitHub token"
         env:
