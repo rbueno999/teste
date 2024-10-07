@@ -22,7 +22,9 @@ jobs:
      - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
-          sonar.projectkey: teste
+          
+          sonar.projectKey: teste
+          sonar.organization: teste
           SONAR_TOKEN: ${{ secrets.sonar_token }}
           GITHUB_TOKEN: ${{ secrets.Git_token }}
           username: ${{ secrets.DOCKER_ID }}
