@@ -24,7 +24,7 @@ jobs:
         env:
           
           sonar.projectKey: teste
-          sonar.organization: teste
+          sonar.organization: rbueno999
           SONAR_TOKEN: ${{ secrets.sonar_token }}
           GITHUB_TOKEN: ${{ secrets.Git_token }}
           username: ${{ secrets.DOCKER_ID }}
