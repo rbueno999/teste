@@ -21,7 +21,7 @@ jobs:
 
      - name: SonarCloud Scan
         # uses: sonarsource/sonarcloud-github-action@master
-        sonar-scanner -Dsonar.projectKey=test -Dsonar.organization=rbueno999
+        sonar-scanner -sonar.projectKey=teste -sonar.organization=rbueno999
         env:
           
           sonar.projectKey: teste
