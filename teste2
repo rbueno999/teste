@@ -20,7 +20,8 @@ jobs:
           image-ref: 'rogerfb1966/teste1:1.0'
 
      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        # uses: sonarsource/sonarcloud-github-action@master
+        sonar-scanner -Dsonar.projectKey=test -Dsonar.organization=rbueno999
         env:
           
           sonar.projectKey: teste
