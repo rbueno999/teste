@@ -19,20 +19,7 @@ jobs:
           password: ${{ secrets.dockerhub_1 }}
           image-ref: 'rogerfb1966/teste1:1.0'
 
-     - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@v1
-        env:
-          projectKey: teste
-          organization: rbueno999#
-          SONAR_TOKEN: ${{ secrets.sonar_token }}
-          GITHUB_TOKEN: ${{ secrets.Git_token }}
-          username: ${{ secrets.DOCKER_ID }}
-          password: ${{ secrets.dockerhub_1 }}
-      
-      - name: Another step using GitHub token
-        run: echo "Using GitHub token"
-        env:
-          GITHUB_TOKEN: ${{ secrets.Git_token }}
+  
               
 build:
     runs-on: ubuntu-latest
