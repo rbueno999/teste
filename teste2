@@ -22,7 +22,7 @@ jobs:
      - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1
         env:
-          export SONAR_SCANNER_OPTS="-Dsonar.projectKey=secrets.sonar_token -Dsonar.organization=teste"
+          export SONAR_SCANNER_OPTS="-sonar.projectKey=secrets.sonar_token -sonar.organization=teste"
           projectKey: teste
           organization: rbueno999#
           SONAR_TOKEN: ${{ secrets.sonar_token }}
